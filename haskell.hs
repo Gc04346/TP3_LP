@@ -39,7 +39,9 @@ numPerfeito n
  |somaDivs n [1..(n-1)] == n = True
  |otherwise = Falsev
  
-
+rBinaria :: Integer -> [Integer]
+rBinaria 0 = []
+rBinaria n = rBinaria (n `div` 2) ++ [n `mod` 2]
 
 main = do
     print $ primo 997
