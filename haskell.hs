@@ -43,5 +43,17 @@ rBinaria :: Integer -> [Integer]
 rBinaria 0 = []
 rBinaria n = rBinaria (n `div` 2) ++ [n `mod` 2]
 
+elemRepetido :: Integer -> [Integer] -> Bool
+elemRepetido n [] = False
+elemRepetido n (a:lista)
+ | n == a = True
+ |otherwise = elemRepetido n lista
+
+elemDistintos :: [Integer] -> Bool
+elemDistintos [] = True
+elemDistintos (a:lista)
+ |elemRepetido a lista == True = False
+ |otherwise = elemDistintos lista
+
 main = do
     print $ primo 997
