@@ -28,6 +28,17 @@ primo n
  |n == 2 = True
  |otherwise = verificaPrimo n [2..(n-1)]
  
+somaDivs :: Integer -> [Integer] -> Integer
+somaDivs n [] = 0
+somaDivs n (a:lista)
+ |n `mod` a == 0 = a + somaDivs n lista
+ |otherwise = somaDivs n lista
+ 
+numPerfeito :: Integer -> Bool
+numPerfeito n
+ |somaDivs n [1..(n-1)] == n = True
+ |otherwise = Falsev
+ 
 
 
 main = do
