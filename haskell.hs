@@ -54,6 +54,13 @@ elemDistintos [] = True
 elemDistintos (a:lista)
  |elemRepetido a lista == True = False
  |otherwise = elemDistintos lista
+ 
+disjuntas :: [Integer] -> [Integer] -> Bool
+disjuntas [] lista2 = True
+disjuntas (a:lista1) lista2
+ |elemRepetido a lista2 == False = disjuntas lista1 lista2
+ |otherwise = True
+ 
 
 main = do
     print $ primo 997
