@@ -88,5 +88,9 @@ linearizar :: [[Integer]] -> [Integer]
 linearizar [] = []
 linearizar (sublista:lista) = sublista ++ linearizar lista
 
+shift :: Integer -> [Integer] -> [Integer]
+shift 0 lista = lista
+shift n (a:lista) = shift (n-1) (lista ++ [a])
+
 main = do
     print $ primo 997
