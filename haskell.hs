@@ -84,5 +84,9 @@ funcao n (a:lista) = n+a : funcao (soma n a ) lista
 somaParciais :: [Integer] -> [Integer]
 somaParciais (a:lista) = a : funcao a lista
 
+linearizar :: [[Integer]] -> [Integer]
+linearizar [] = []
+linearizar (sublista:lista) = sublista ++ linearizar lista
+
 main = do
     print $ primo 997
