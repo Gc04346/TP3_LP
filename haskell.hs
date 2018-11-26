@@ -91,6 +91,12 @@ linearizar (sublista:lista) = sublista ++ linearizar lista
 shift :: Integer -> [Integer] -> [Integer]
 shift 0 lista = lista
 shift n (a:lista) = shift (n-1) (lista ++ [a])
+final :: Integer -> [Integer] -> [Integer]
+final 0 lista = lista
+final n (a:lista) = final (n-1) lista
+
+removerFim :: Integer -> [Integer] -> [Integer]
+removerFim n lista = espelhaLista(final n (espelhaLista lista))
 
 main = do
     print $ primo 997
