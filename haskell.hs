@@ -61,6 +61,18 @@ disjuntas (a:lista1) lista2
  |elemRepetido a lista2 == False = disjuntas lista1 lista2
  |otherwise = True
  
+espelhaLista :: [Integer] -> [Integer]
+espelhaLista [] = []
+espelhaLista (a:lista) = espelhaLista lista ++ [a]
+
+verificaTrasPraFrente :: [Integer] -> [Integer] -> Bool
+verificaTrasPraFrente [] [] = True
+verificaTrasPraFrente (a:lista1) (b:lista2)
+ | a /= b = False
+ | otherwise = verificaTrasPraFrente lista1 lista2
+ 
+palindromo :: [Integer] -> Bool
+palindromo lista = verificaTrasPraFrente lista (espelhaLista lista)
 
 main = do
     print $ primo 997
