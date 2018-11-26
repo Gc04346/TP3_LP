@@ -37,7 +37,7 @@ somaDivs n (a:lista)
 numPerfeito :: Integer -> Bool
 numPerfeito n
  |somaDivs n [1..(n-1)] == n = True
- |otherwise = Falsev
+ |otherwise = False
  
 rBinaria :: Integer -> [Integer]
 rBinaria 0 = []
@@ -73,6 +73,16 @@ verificaTrasPraFrente (a:lista1) (b:lista2)
  
 palindromo :: [Integer] -> Bool
 palindromo lista = verificaTrasPraFrente lista (espelhaLista lista)
+
+soma :: Integer -> Integer -> Integer
+soma a b = a+b
+
+funcao :: Integer -> [Integer] -> [Integer]
+funcao n [] = []
+funcao n (a:lista) = n+a : funcao (soma n a ) lista
+
+somaParciais :: [Integer] -> [Integer]
+somaParciais (a:lista) = a : funcao a lista
 
 main = do
     print $ primo 997
