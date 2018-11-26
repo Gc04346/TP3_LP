@@ -98,5 +98,12 @@ final n (a:lista) = final (n-1) lista
 removerFim :: Integer -> [Integer] -> [Integer]
 removerFim n lista = espelhaLista(final n (espelhaLista lista))
 
+intercalar :: [Integer] -> [Integer] -> [Integer]
+intercalar [] lista2 = lista2
+intercalar lista1 [] = lista1
+intercalar (e1:lista1) (e2:lista2)
+ |e1 > e2 = e2 : intercalar (e1 : lista1) lista2
+ |otherwise = e1 : intercalar lista1 (e2 : lista2)
+
 main = do
     print $ primo 997
