@@ -104,6 +104,13 @@ intercalar lista1 [] = lista1
 intercalar (e1:lista1) (e2:lista2)
  |e1 > e2 = e2 : intercalar (e1 : lista1) lista2
  |otherwise = e1 : intercalar lista1 (e2 : lista2)
-
-main = do
-    print $ primo 997
+ 
+quiosque :: Integer -> [Integer]
+quiosque 0 = []
+quiosque n
+ |n - 100 >= 0 = quiosque (n-100) ++ [100]
+ |n - 50 >= 0 = quiosque (n-50) ++ [50]
+ |n - 20 >= 0 = quiosque (n-20) ++ [20]
+ |n - 10 >= 0 = quiosque (n-10) ++ [10]
+ |n - 5 >= 0 = quiosque (n-5) ++ [5]
+ |n - 1 >= 0 = quiosque (n-1) ++ [1]
